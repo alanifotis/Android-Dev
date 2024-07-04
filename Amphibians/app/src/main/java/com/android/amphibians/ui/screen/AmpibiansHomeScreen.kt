@@ -1,6 +1,7 @@
 package com.android.amphibians.ui.screen
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -29,17 +30,17 @@ import com.android.amphibians.R
 fun HomeScreen(
     amphibiansUiState: AmphibiansUiState,
     retryAction: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(0.dp)
+
 ) {
     when (amphibiansUiState) {
         is AmphibiansUiState.Success -> MainAppScreen(
             amphibiansUiState.amphibians, modifier.fillMaxWidth()
         )
-
         AmphibiansUiState.Error -> {}
         AmphibiansUiState.Loading ->{}
     }
-
 }
 
 @Composable
